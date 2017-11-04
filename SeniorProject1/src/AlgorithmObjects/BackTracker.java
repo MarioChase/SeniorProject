@@ -6,22 +6,33 @@ import java.util.Stack;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+//This algorithm is similar to a recursive backtracking algorithm 
 public class BackTracker extends MazeAlgorithm{
 	public BackTracker(int w, int h) {
 		super(w, h);
 		// TODO Auto-generated constructor stub
 	}
-
+	//maze generation
 	public ArrayList<Rectangle> generateMaze() {
 		ArrayList<Rectangle> maze = super.generateGrid();
 		Stack<String> directions = new Stack<String>();
-		
+		//arbitrary starting point
 		int x = 2;
 		int y = 2;
+		//Loop through all elements in the grid list
 		for (int i = 0; i < (width * height); i++) {
+			//used for setting the next cell
 			int x_modifier = 0;
 			int y_modifier = 0;
+			//picks a random direction
 			switch (rand.nextInt(3)) {
+			/*case num:
+			 * if(space is valid in directions coordinate){
+			 * 	set the modifier accordingly
+			 * 	set the current cell accordingly
+			 * 	track the movement on the stack
+			 * }
+			 * */
 			case 0:
 				if (isValid(maze.get(useCoordinate(moveLeft(x), y))) == true) {
 					x_modifier = -1;
@@ -51,9 +62,13 @@ public class BackTracker extends MazeAlgorithm{
 					break;
 
 				}
+			//occurs when all current options at a point are invalid
 			default:
+				//checks for an empty stack
 				if (directions.isEmpty() == false) {
+					//looks at the top of the stack
 					switch (directions.peek()) {
+					//Moves accordingly based on the direction and removes the instruction
 					case "Left":
 						x_modifier = 1;
 						x = moveRight(x);
@@ -78,9 +93,11 @@ public class BackTracker extends MazeAlgorithm{
 					}
 				}
 			}
+			//fills the modified coordinates to full
 			maze.get(useCoordinate(x + x_modifier, y + y_modifier)).setFill(Color.WHITE);
 			maze.get(useCoordinate(x, y)).setFill(Color.WHITE);
 		}
+		//marks begining and end of the maze
 		maze.get(useCoordinate(2,2)).setFill(Color.GREEN);
 		maze.get(useCoordinate(width/2,height/2)).setFill(Color.BLUE);
 		return maze;

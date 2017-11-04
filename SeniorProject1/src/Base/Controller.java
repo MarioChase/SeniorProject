@@ -1,3 +1,5 @@
+package Base;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Stack;
@@ -10,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+//reconfigure to interact with front end
 public class Controller extends Application {
 	public int width = 300;
 	public int height = 300;
