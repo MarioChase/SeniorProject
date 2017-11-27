@@ -2,7 +2,7 @@
 <%@page import="AlgorithmObjects.*"%>
 <%@page import="Base.*"%>
 <%@page import="MiscObjects.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>
 	<head>
@@ -16,10 +16,10 @@
 			controller.start();
 		%>
 	</body>
-		<canvas id="myCanvas" width="600" height="600" style="border:5px solid #000000;">
+		<canvas id="myCanvas" width="515" height="515" style="border:5px solid #000000;">
 		</canvas>
 		<script type="text/javascript">
 			var test = '<%=controller.getJsonMaze()%>';
-			makeMaze(test);
+			makeMaze(test,200,200);
 		</script>
 </html>

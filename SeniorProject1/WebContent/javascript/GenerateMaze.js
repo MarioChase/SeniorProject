@@ -1,11 +1,11 @@
-function makeMaze(test) {
+function makeMaze(test,width,height) {
 	var maze = JSON.parse(test);
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	var grid = [];
-	for (var i = 0; i <= 200; i++) {
-		for (var j = 0; j <= 200; j++) {
-			switch (maze.cells[(i * 200) + j]) {
+	for (var i = 0; i <= height; i++) {
+		for (var j = 0; j <= width; j++) {
+			switch (maze.cells[(i * height) + j]) {
 			case "w":
 				ctx.fillStyle = "white";
 				break;
@@ -16,10 +16,13 @@ function makeMaze(test) {
 				ctx.fillStyle = "blue";
 				break;
 			case "e":
+				ctx.fillStyle = "purple";
+				break;
+			case "r":
 				ctx.fillStyle = "red";
 				break;
 			default:
-				ctx.fillStyle = "purple";
+				ctx.fillStyle = "black";
 				break;
 			}
 			ctx.fillRect(i * 5, j * 5, 5, 5);

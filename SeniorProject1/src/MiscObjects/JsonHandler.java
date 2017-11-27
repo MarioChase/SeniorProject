@@ -32,7 +32,9 @@ public class JsonHandler {
 			else if (maze.get(i).getFill().equals(Paint.valueOf("green"))) {
 				cells.add("e");
 			}
-
+			else if (maze.get(i).getFill().equals(Paint.valueOf("red"))) {
+				cells.add("r");
+			}
 		}
 		JSONmaze.put("cells", cells);
 		return JSONmaze;
