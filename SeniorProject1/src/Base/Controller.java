@@ -27,7 +27,7 @@ public class Controller {
 	}
 
 	public void start() {
-		IMazeAlgorithm algorithm = new PrimAlgorithm(width, height);
+		IMazeAlgorithm algorithm = new BackTracker(width, height);
 		grid = algorithm.generateMaze();
 	}
 

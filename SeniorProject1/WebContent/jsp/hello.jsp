@@ -12,14 +12,16 @@
 	<script src="../javascript/GenerateMaze.js"></script>
 	<body>
 		<%
-			Controller controller = new Controller(200, 200);
+			int width = 200;
+			int height = 200;
+			Controller controller = new Controller(width, height);
 			controller.start();
 		%>
 	</body>
-		<canvas id="myCanvas" width="515" height="515" style="border:5px solid #000000;">
+		<canvas id="myCanvas" width="<%=width*3.5%>" height="<%=width*3.5%>" style="border:5px solid #000000;">
 		</canvas>
 		<script type="text/javascript">
 			var test = '<%=controller.getJsonMaze()%>';
-			makeMaze(test,200,200);
+			makeMaze(test,<%=width%>,<%=height%>);
 		</script>
 </html>
