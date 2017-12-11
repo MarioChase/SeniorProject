@@ -19,15 +19,26 @@ import javafx.stage.Stage;
 public class Controller {
 	public int width;
 	public int height;
+	public String algorithm_entered;
 	ArrayList<Rectangle> grid;
 
-	public Controller(int w, int h) {
+	public Controller(int w, int h, String algorithm) {
 		width = w;
 		height = h;
+		algorithm_entered = algorithm;
 	}
 
 	public void start() {
-		IMazeAlgorithm algorithm = new BackTracker(width, height);
+		IMazeAlgorithm algorithm = null;
+		switch(algorithm_entered) {
+		case "BackTracker":
+			algorithm = new BackTracker(width, height);
+			break;
+		case "BackTrackerModified":
+			algorithm = new BackTrackerModified(width, height);
+			break;
+		}
+		
 		grid = algorithm.generateMaze();
 	}
 

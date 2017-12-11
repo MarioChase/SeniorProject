@@ -8,8 +8,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 //This algorithm is similar to a recursive backtracking algorithm 
-public class BackTracker extends MazeAlgorithm {
-	public BackTracker(int w, int h) {
+public class BackTrackerModified extends MazeAlgorithm {
+	public BackTrackerModified(int w, int h) {
 		super(w, h);
 		// TODO Auto-generated constructor stub
 	}
@@ -96,7 +96,7 @@ public class BackTracker extends MazeAlgorithm {
 				// fills the modified coordinates to full
 				maze.get(useCoordinate(x + x_modifier, y + y_modifier)).setFill(Color.WHITE);
 				maze.get(useCoordinate(x, y)).setFill(Color.WHITE);
-		} while (directions.size() >= 1);
+		} while (directions.size() < 100);
 		return maze;
 	}
 }

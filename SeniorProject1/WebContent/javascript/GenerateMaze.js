@@ -16,7 +16,7 @@ function makeMaze(test,width,height) {
 				ctx.fillStyle = "blue";
 				break;
 			case "e":
-				ctx.fillStyle = "purple";
+				ctx.fillStyle = "green";
 				break;
 			case "r":
 				ctx.fillStyle = "red";
@@ -25,7 +25,7 @@ function makeMaze(test,width,height) {
 				ctx.fillStyle = "black";
 				break;
 			}
-			ctx.fillRect(i * 5, j * 5, 5, 5);
+			ctx.fillRect(i * 5, j * 5, 4.5, 4.5);
 		}
 	}
 }
