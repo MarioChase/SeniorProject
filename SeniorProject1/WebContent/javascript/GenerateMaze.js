@@ -1,4 +1,4 @@
-function makeMaze(test,width,height) {
+function makeMaze(test, width, height) {
 	var maze = JSON.parse(test);
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
@@ -25,7 +25,7 @@ function makeMaze(test,width,height) {
 				ctx.fillStyle = "black";
 				break;
 			}
-			ctx.fillRect(i * 5, j * 5, 4.5, 4.5);
+			ctx.fillRect(i * 50, j * 50, 49.5, 49.5);
 		}
 	}
 }
