@@ -14,7 +14,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Hello</title>
 	</head>
-	<body>
+	<body onload="startGame()">
 		<%
 			int width = Integer.parseInt(request.getParameter("size"));
 			int height = Integer.parseInt(request.getParameter("size"));
@@ -22,15 +22,14 @@
 			Controller controller = new Controller(width, height, algorithm);
 			controller.start();
 		%>
+		<div id="gameview">
 			<canvas id="myCanvas" width="<%=width*45%>" height="<%=height*45%>" style="border:5px solid #000000;">
 			</canvas>
-			<script type="text/javascript">
-			startGame();
-			</script>
 			<script type="text/javascript">
 				var test = '<%=controller.getJsonMaze()%>';
 				makeMaze(test,<%=width%>,<%=height%>);
 			</script>
+		</div>
 	</body>
 		
 		

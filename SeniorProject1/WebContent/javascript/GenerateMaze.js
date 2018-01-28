@@ -25,7 +25,7 @@ function makeMaze(test, width, height) {
 				ctx.fillStyle = "black";
 				break;
 			}
-			ctx.fillRect(i * 50, j * 50, 49.5, 49.5);
+			ctx.fillRect(i * 100, j * 100, 99.5, 99.5);
 		}
 	}
 }
