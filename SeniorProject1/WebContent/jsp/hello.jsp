@@ -23,7 +23,7 @@
 			controller.start();
 		%>
 		<div id="gameview">
-			<canvas id="myCanvas" width="<%=width*45%>" height="<%=height*45%>" style="border:5px solid #000000;">
+			<canvas id="myCanvas" width="<%=width*100%>" height="<%=height*100%>" style="border:5px solid #000000;">
 			</canvas>
 			<script type="text/javascript">
 				var test = '<%=controller.getJsonMaze()%>';

@@ -1,8 +1,9 @@
+var walls = [];
+
 function makeMaze(test, width, height) {
 	var maze = JSON.parse(test);
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
-	var grid = [];
 	for (var i = 0; i <= height; i++) {
 		for (var j = 0; j <= width; j++) {
 			switch (maze.cells[(i * height) + j]) {
@@ -11,6 +12,12 @@ function makeMaze(test, width, height) {
 				break;
 			case "b":
 				ctx.fillStyle = "black";
+				walls.push({
+					wall_x : i * 100,
+					wall_y : j * 100,
+					wall_width : 99.5,
+					wall_height : 99.5
+				});
 				break;
 			case "s":
 				ctx.fillStyle = "blue";
