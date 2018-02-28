@@ -7,7 +7,6 @@ function startGame() {
 			document.body
 					.insertBefore(this.canvas, document.body.childNodes[0]);
 			this.interval = setInterval(updateGameArea, 20);
-			setInterval(isColliding, 1);
 			$(document).keydown(function(e) {
 				switch (e.keyCode) {
 				case 87:
@@ -54,39 +53,6 @@ function startGame() {
 	myGamePiece = new component(30, 30, "red", 10, 120);
 }
 
-function isColliding() {
-	for (var i = 0; i < walls.length; i++) {
-		if (((myGamePiece.x + 32) >= (walls[i].wall_x) && myGamePiece.x - 2 <= (walls[i].wall_x + 100))
-				&& (myGamePiece.y + 32 >= walls[i].wall_y && myGamePiece.y - 2 <= walls[i].wall_y + 100)) {
-			return true;
-		}
-	}
-	return false;
-}
-
-function isCollidingRight() {
-	for (var i = 0; i < walls.length; i++) {
-		if ((myGamePiece.x - 2) >= (walls[i].wall_x - 5)) {
-			console.log("right collision");
-			return true;
-		} else {
-			return false
-		}
-	}
-	return false;
-}
-
-function isCollidingLeft() {
-	for (var i = 0; i < walls.length; i++) {
-		if ((myGamePiece.x) >= (walls[i].wall_x + 100)) {
-			return true;
-		} else {
-			return false
-		}
-	}
-	return false;
-}
-
 function updateGameArea() {
 	myGameArea.clear();
 	myGamePiece.newPos();
@@ -122,48 +88,17 @@ function stopY() {
 }
 
 function moveup() {
-	if (myGamePiece.speedY >= -1 && isColliding() == false) {
-		myGamePiece.speedY -= 1;
-	} else {
-		myGamePiece.speedY = 0;
-	}
+	myGamePiece.speedY = -1;
 }
 
 function movedown() {
-	if (myGamePiece.speedY <= 1 && isColliding() == false) {
-		myGamePiece.speedY += 1;
-	} else {
-		myGamePiece.speedY = 0;
-	}
+	myGamePiece.speedY = 1;
 }
 
 function moveleft() {
-	if (isColliding() == true && isCollidingLeft() == true) {
-		stopX();
-	} else if (myGamePiece.speedX >= -1 && isColliding() == true
-			&& isCollidingLeft() == false) {
-		console.log("wut");
-		myGamePiece.speedX = -1;
-	} else if (myGamePiece.speedX == 0 && isColliding() == true
-			&& isCollidingLeft() == false) {
-		console.log("wat");
-		myGamePiece.speedX = -1;
-	}
-	else {
-		myGamePiece.speedX -= 1;
-	}
+	myGamePiece.speedX = -1;
 }
+
 function moveright() {
-	if (isColliding() == true && isCollidingRight() == true) {
-		stopX();
-	} else if (myGamePiece.speedX >= 1 && isCollidingRight() == true
-			&& isCollidingRight() == false) {
-		myGamePiece.speedX += 1;
-	} else if (myGamePiece.speedX == 0 && isCollidingRight() == true
-			&& isCollidingRight() == false) {
-		myGamePiece.speedX += 1;
-	}
-	else {
-		myGamePiece.speedX += 1;
-	}
+	myGamePiece.speedX = 1;
 }
