@@ -31,7 +31,5 @@
 			</script>
 		</div>
 	</body>
-		
-		
 	<div id="txt"></div>
 </html>

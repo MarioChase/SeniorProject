@@ -36,3 +36,4 @@ function makeMaze(test, width, height) {
 		}
 	}
 }
+
