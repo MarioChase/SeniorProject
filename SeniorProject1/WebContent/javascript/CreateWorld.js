@@ -30,7 +30,7 @@ function init(test, m_width, m_height, gamearea) {
 	makeMaze(test, m_width, m_height, gamearea);
 	createCharacter(gamearea);
 	// Start the engine
+	
 	Matter.Engine.run(gamearea.engine);
 	Matter.Render.run(gamearea.render);
-
 }

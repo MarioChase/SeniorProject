@@ -1,6 +1,6 @@
-function shootProjectile(gamearea, source) {
+function shootProjectile(gamearea, source, range) {
 
-	var projectile = Matter.Bodies.circle(source.position.x, source.position.y, 5, {
+	var projectile = Matter.Bodies.circle(source.position.x + source.velocity.x, source.position.y+source.velocity.y, 5, {
 		density : 0.04,
 		friction : 0.01,
 		frictionAir : 0.00001,
@@ -13,5 +13,5 @@ function shootProjectile(gamearea, source) {
 	});
 	Matter.Body.setVelocity(projectile,source.velocity);
 	Matter.World.add(gamearea.world, projectile);
-
+	setTimeout(function(){Matter.World.remove(gamearea.world,projectile)},range);
 }

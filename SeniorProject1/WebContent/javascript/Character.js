@@ -23,25 +23,22 @@ function createCharacter(gamearea) {
 		switch (e.keyCode) {
 		case 87:
 			Matter.Body.setVelocity(player, {x: 0,y: -1});
-			console.log("up");
 			break;
 		case 65:
 			Matter.Body.setVelocity(player, {x: -1,y: 0})
-			console.log("left");
 			break;
 		case 83:
 			Matter.Body.setVelocity(player, {x: 0,y: 1})
-			console.log("down");
 			break;
 		case 68:
 			Matter.Body.setVelocity(player, {x: 1,y: 0})
-			console.log("right");
 			break;
 		case 32:
 			e.preventDefault();
-			console.log("shoot");
-			shootProjectile(gamearea, player);
+			shootProjectile(gamearea, player, 1000);
 			break;
+		case 16:
+			
 		}
 
 	})
