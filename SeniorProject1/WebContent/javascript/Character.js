@@ -17,7 +17,8 @@ function createCharacter(gamearea) {
 	
 	Matter.World.add(gamearea.world, player);
 	
-	console.log(player);
+	console.log(sessionStorage.player);
+	console.log("Hello");
 	
 	$(document).keydown(function(e) {
 		switch (e.keyCode) {

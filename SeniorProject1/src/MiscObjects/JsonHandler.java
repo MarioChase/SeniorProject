@@ -7,6 +7,7 @@ import org.json.simple.parser.*;
 
 import com.sun.prism.paint.Color;
 
+import GameObject.Player;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
@@ -38,5 +39,23 @@ public class JsonHandler {
 		}
 		JSONmaze.put("cells", cells);
 		return JSONmaze;
+	}
+	
+	public JSONObject playerToJson(Player player) {
+		JSONObject JSONplayer = new JSONObject();
+		JSONArray abilities = new JSONArray();
+		
+		JSONplayer.put("Health", player.health);
+		JSONplayer.put("Mana", player.mana);
+		
+		JSONplayer.put("Ability1_Name", player.ability_one.get_name());
+		JSONplayer.put("Ability1_Code", player.ability_one.load());
+		
+		return JSONplayer;
+	}
+
+	public JSONObject monsterToJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
