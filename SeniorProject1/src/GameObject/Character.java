@@ -2,7 +2,7 @@ package GameObject;
 
 import Abilities.IAbility;
 
-public class Character extends GameObject{
+public abstract class Character extends GameObject{
 	public int health;
 	public int mana;
 	public IAbility ability_one;

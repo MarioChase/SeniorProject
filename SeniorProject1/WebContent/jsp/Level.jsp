@@ -25,6 +25,7 @@
 		<script src="../javascript/CreateMaze.js"></script>
 		<script src="../javascript/Character.js"></script>
 		<script src="../javascript/Projectile.js"></script>
+		<script src="../javascript/Monster.js"></script>
 		<script src="../javascript/test.js"></script>
 		<script type="text/javascript">
 				var test = '<%=controller.getJsonMaze()%>';

@@ -5,6 +5,7 @@ function shootProjectile(gamearea, source, range) {
 		friction : 0.01,
 		frictionAir : 0.00001,
 		restitution : 0.8,
+		label : 'projectile',
 		render : {
 			fillStyle : '#F35e66',
 			strokeStyle : 'black',

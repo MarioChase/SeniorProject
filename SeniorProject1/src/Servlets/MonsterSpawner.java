@@ -23,10 +23,10 @@ public class MonsterSpawner extends HttpServlet {
 			throws ServletException, IOException{
 		//Validate input stupid!!!
 		JsonHandler handler = new JsonHandler();
-		Hashtable<String, Integer> stats = new Hashtable<String, Integer>();
-		stats.put("str", Integer.parseInt(request.getParameter("time")));
+		MonsterFactory factory = new MonsterFactory();
+		request.getParameter("time");
 		//return monster as a json object
-		response.getWriter().println(handler.monsterToJson());
+		response.getWriter().println(handler.monsterToJson(factory.getMonster(180000)));
 	}
 		
 	@Override

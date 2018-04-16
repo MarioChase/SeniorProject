@@ -35,8 +35,6 @@ public class CharacterCreator extends HttpServlet {
 		IAbility a = new TestAbility();
 		Player player = builder.execute(stats);
 		response.getWriter().println(handler.playerToJson(player));
-		
-		
 	}
 		
 	@Override

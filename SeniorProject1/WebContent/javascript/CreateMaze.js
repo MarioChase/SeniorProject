@@ -24,6 +24,7 @@ function createWall(i, j) {
 		render : {
 			fillStyle : '#000000',
 			strokeStyle : '#000000',
+			label : 'wall',
 			lineWidth : 0
 		}
 	});

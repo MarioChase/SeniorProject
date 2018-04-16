@@ -31,7 +31,31 @@ function init(test, m_width, m_height, gamearea) {
 	createCharacter(gamearea);
 	
 	// Start the engine
-	
 	Matter.Engine.run(gamearea.engine);
 	Matter.Render.run(gamearea.render);
+	
+	function collision(event) {
+		var collisions = event.source.pairs.collisionActive;
+		
+		for  (var i = 0; i < collisions.length; i ++){
+			var bodyA = event.source.pairs.collisionActive[0].bodyA.label;
+			var bodyB = event.source.pairs.collisionActive[0].bodyB.label;
+			if(bodyA == 'projectile' && bodyB == 'monster' || bodyA == 'monster' && bodyB == 'projectile'){
+				damageMonster();
+			}
+			if(bodyA == 'player' && bodyB == 'monster' ||bodyA == 'monster' && bodyB =='player'){
+				console.log('player has collided');
+			}
+			console.log(bodyA, bodyB);
+		}
+	}
+	
+	Matter.Events.on(gamearea.engine, 'collisionStart', collision);
+	
 }
+
+function damageMonster(){
+	console.log("monster hit");
+}
+
+
