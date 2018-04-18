@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +20,25 @@
 		<input id="wis" type="text" name="wis" /></br>
 		<label for="chr"> Charisma </label>
 		<input id="chr" type="text" name="chr" /></br>
-		<input type="text" name="size"> <select name="algorithm">
+		<select id="ability1">
+ 			<option value="boulder_throw">Boulder Throw</option>
+  			<option value="fireball">Fireball</option>
+  			<option value="radiant_burst">Radiant Burst</option>
+  			<option value="dagger_throw">Dagger Throw</option>
+		</select>
+		<select id="ability2">
+  			<option value="charge">Charge</option>
+  			<option value="dash">Dash</option>
+  			<option value="blink">Blink</option>
+  			<option value="divine_push">Divine Push</option>
+		</select>
+		<select id="ability3">
+  			<option value="rage">Rage</option>
+  			<option value="ice_spike">Ice Spike</option>
+  			<option value="crossbow_shot">Crossbow</option>
+  			<option value="smite">Smite</option>
+		</select>
+		</br><input type="text" name="size"> <select name="algorithm">
 			<option value="BackTracker">BackTracker</option>
 			<option value="BackTrackerModified">ModifiedBackTracker</option></select></br>
 		<button id="submit" type="submit" value="Submit">Enter the Dungeon</button>

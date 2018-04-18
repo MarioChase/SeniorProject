@@ -1,3 +1,6 @@
+
+var spawncheck = 0;
+
 function init(test, m_width, m_height, gamearea) {
 
 	// Fetch our canvas
@@ -26,7 +29,7 @@ function init(test, m_width, m_height, gamearea) {
 	};
 	
 	gamearea.engine.world.gravity.y = 0;
-	
+	setInterval(function(){spawncheck += 1;},1000);
 	makeMaze(test, m_width, m_height, gamearea);
 	createCharacter(gamearea);
 	
@@ -35,27 +38,30 @@ function init(test, m_width, m_height, gamearea) {
 	Matter.Render.run(gamearea.render);
 	
 	function collision(event) {
-		var collisions = event.source.pairs.collisionActive;
-		
+		var collisions = event.source.pairs.collisionStart;
 		for  (var i = 0; i < collisions.length; i ++){
-			var bodyA = event.source.pairs.collisionActive[0].bodyA.label;
-			var bodyB = event.source.pairs.collisionActive[0].bodyB.label;
-			if(bodyA == 'projectile' && bodyB == 'monster' || bodyA == 'monster' && bodyB == 'projectile'){
-				damageMonster();
+			
+			var bodyA = event.source.pairs.collisionStart[i].bodyA;
+			var bodyB = event.source.pairs.collisionStart[i].bodyB;
+			if(bodyA.label == 'projectile' && bodyB.label == 'monster' || bodyA.label == 'monster' && bodyB.label == 'projectile'){
+				damageMonster(gamearea, bodyA, bodyB);
+				Matter.World.remove(gamearea.world,bodyB);
 			}
 			if(bodyA == 'player' && bodyB == 'monster' ||bodyA == 'monster' && bodyB =='player'){
 				console.log('player has collided');
 			}
-			console.log(bodyA, bodyB);
 		}
 	}
-	
 	Matter.Events.on(gamearea.engine, 'collisionStart', collision);
 	
 }
 
-function damageMonster(){
-	console.log("monster hit");
+function damageMonster(gamearea, monster, projectile){
+	monster.health -= 1;
+	console.log(monster.health);
+	if(monster.health <= 0){
+		Matter.World.remove(gamearea.world,monster)
+	}
 }
 
 

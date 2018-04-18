@@ -60,7 +60,7 @@ public class JsonHandler {
 		JSONArray abilities = new JSONArray();
 		JSONmonster.put("Health", monster.health);
 		JSONmonster.put("Mana", monster.mana);
-		
+		JSONmonster.put("monster_class", monster.monster_class);
 		JSONmonster.put("Ability1_Name", monster.ability_one.get_name());
 		JSONmonster.put("Ability1_Code", monster.ability_one.load());
 		

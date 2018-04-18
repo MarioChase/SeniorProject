@@ -24,9 +24,9 @@ public class MonsterSpawner extends HttpServlet {
 		//Validate input stupid!!!
 		JsonHandler handler = new JsonHandler();
 		MonsterFactory factory = new MonsterFactory();
-		request.getParameter("time");
+		int time = Integer.parseInt(request.getParameter("time"));
 		//return monster as a json object
-		response.getWriter().println(handler.monsterToJson(factory.getMonster(180000)));
+		response.getWriter().println(handler.monsterToJson(factory.getMonster(time)));
 	}
 		
 	@Override

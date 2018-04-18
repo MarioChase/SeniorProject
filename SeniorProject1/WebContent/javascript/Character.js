@@ -22,26 +22,26 @@ function createCharacter(gamearea) {
 		switch (e.keyCode) {
 		case 87:
 			Matter.Body.setVelocity(player, {
-				x : 0,
+				x : player.velocity.x,
 				y : -1
 			});
 			break;
 		case 65:
 			Matter.Body.setVelocity(player, {
 				x : -1,
-				y : 0
+				y : player.velocity.y
 			})
 			break;
 		case 83:
 			Matter.Body.setVelocity(player, {
-				x : 0,
+				x : player.velocity.x,
 				y : 1
 			})
 			break;
 		case 68:
 			Matter.Body.setVelocity(player, {
 				x : 1,
-				y : 0
+				y : player.velocity.y
 			})
 			break;
 		case 81:
@@ -59,12 +59,17 @@ function createCharacter(gamearea) {
 	$(document).keyup(function(e) {
 		switch (e.keyCode) {
 		case 87:
-		case 65:
 		case 83:
+			Matter.Body.setVelocity(player, {
+				x : player.velocity.x,
+				y : 0
+			})
+			break;
+		case 65:
 		case 68:
 			Matter.Body.setVelocity(player, {
 				x : 0,
-				y : 0
+				y : player.velocity.y
 			})
 			break;
 
