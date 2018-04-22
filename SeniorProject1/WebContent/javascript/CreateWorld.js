@@ -9,7 +9,6 @@ function init(test, m_width, m_height, gamearea) {
 	// Setup Matter JS
 	var newengine = Matter.Engine.create();
 	var newworld = newengine.world;
-	console.log(newworld.gravity);
 	var newrender = Matter.Render.create({
 		canvas : canvas,
 		engine : newengine,
@@ -37,6 +36,31 @@ function init(test, m_width, m_height, gamearea) {
 	Matter.Engine.run(gamearea.engine);
 	Matter.Render.run(gamearea.render);
 	
+	var v_bound_wall =  Matter.Bodies.rectangle(-25, 0, 50,  m_height * 100, {
+		isStatic : true,
+		render : {
+			fillStyle : '#000000',
+			strokeStyle : '#000000',
+			label : 'wall',
+			lineWidth : 0
+		}
+	});
+	
+	var h_bound_wall =  Matter.Bodies.rectangle(0, -25,  m_width * 100, 50, {
+		isStatic : true,
+		render : {
+			fillStyle : '#000000',
+			strokeStyle : '#000000',
+			label : 'wall',
+			lineWidth : 0
+		}
+	});
+	
+	Matter.World.add(gamearea.world,[h_bound_wall,v_bound_wall]);
+	
+	Matter.Events.on(gamearea.engine, 'beforeUpdate', function() {
+	});
+	
 	function collision(event) {
 		var collisions = event.source.pairs.collisionStart;
 		for  (var i = 0; i < collisions.length; i ++){
@@ -45,10 +69,18 @@ function init(test, m_width, m_height, gamearea) {
 			var bodyB = event.source.pairs.collisionStart[i].bodyB;
 			if(bodyA.label == 'projectile' && bodyB.label == 'monster' || bodyA.label == 'monster' && bodyB.label == 'projectile'){
 				damageMonster(gamearea, bodyA, bodyB);
-				Matter.World.remove(gamearea.world,bodyB);
+				if(bodyA.isSensor == false || bodyA.destroyable == true){
+					Matter.World.remove(gamearea.world,bodyB);
+				}
 			}
-			if(bodyA == 'player' && bodyB == 'monster' ||bodyA == 'monster' && bodyB =='player'){
-				console.log('player has collided');
+			if(bodyA.label == 'player' && bodyB.label == 'monster' ||bodyA.label == 'monster' && bodyB.label =='player'){
+				
+			}
+			if(bodyA == 'projectile' && bodyB.label == 'Rectangle Body' ||bodyA.label == 'Rectangle Body' && bodyB.label =='projectile'){
+				console.log(bodyA.destroy_on_wall);
+				if(bodyA.destroy_on_wall == true){
+					Matter.World.remove(gamearea.world,bodyB);
+				}
 			}
 		}
 	}
@@ -57,8 +89,7 @@ function init(test, m_width, m_height, gamearea) {
 }
 
 function damageMonster(gamearea, monster, projectile){
-	monster.health -= 1;
-	console.log(monster.health);
+	monster.health -= projectile.damage;
 	if(monster.health <= 0){
 		Matter.World.remove(gamearea.world,monster)
 	}

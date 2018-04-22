@@ -11,7 +11,13 @@
 		<!-- Visit alexandergottlieb.com for more tutorials -->
 		<title>Balls Matter</title>
 	</head>
-	<body>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<div id="overlay">
+	<div id="health"></div>
+	<div id="mana"></div>
+	<div id="stamina"></div>
+	</div>
+	<body onload="on()">
 		<%
 			int width = Integer.parseInt(request.getParameter("size"));
 			int height = Integer.parseInt(request.getParameter("size"));
@@ -27,6 +33,7 @@
 		<script src="../javascript/Projectile.js"></script>
 		<script src="../javascript/Monster.js"></script>
 		<script src="../javascript/test.js"></script>
+		<script src="../javascript/abilities.js"></script>
 		<script type="text/javascript">
 				var test = '<%=controller.getJsonMaze()%>';
 				init(test,<%=width%>,<%=height%>);

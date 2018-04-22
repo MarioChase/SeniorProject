@@ -20,23 +20,23 @@
 		<input id="wis" type="text" name="wis" /></br>
 		<label for="chr"> Charisma </label>
 		<input id="chr" type="text" name="chr" /></br>
-		<select id="ability1">
+		<select id="ability1" name="ability1">
  			<option value="boulder_throw">Boulder Throw</option>
   			<option value="fireball">Fireball</option>
-  			<option value="radiant_burst">Radiant Burst</option>
+  			<!--<option value="radiant_burst">Radiant Burst</option>-->
   			<option value="dagger_throw">Dagger Throw</option>
 		</select>
-		<select id="ability2">
+		<select id="ability2" name="ability2">
   			<option value="charge">Charge</option>
   			<option value="dash">Dash</option>
   			<option value="blink">Blink</option>
-  			<option value="divine_push">Divine Push</option>
+  			<!--<option value="divine_push">Divine Push</option>-->
 		</select>
-		<select id="ability3">
+		<select id="ability3" name="ability3">
   			<option value="rage">Rage</option>
   			<option value="ice_spike">Ice Spike</option>
   			<option value="crossbow_shot">Crossbow</option>
-  			<option value="smite">Smite</option>
+  			<!-- <option value="smite">Smite</option>-->
 		</select>
 		</br><input type="text" name="size"> <select name="algorithm">
 			<option value="BackTracker">BackTracker</option>

@@ -50,7 +50,9 @@ public class JsonHandler {
 		JSONplayer.put("Mana", player.mana);
 		
 		JSONplayer.put("Ability1_Name", player.ability_one.get_name());
-		JSONplayer.put("Ability1_Code", player.ability_one.load());
+		JSONplayer.put("Ability2_Name", player.ability_two.get_name());
+		JSONplayer.put("Ability3_Name", player.ability_three.get_name());
+		
 		
 		return JSONplayer;
 	}
@@ -61,8 +63,7 @@ public class JsonHandler {
 		JSONmonster.put("Health", monster.health);
 		JSONmonster.put("Mana", monster.mana);
 		JSONmonster.put("monster_class", monster.monster_class);
-		JSONmonster.put("Ability1_Name", monster.ability_one.get_name());
-		JSONmonster.put("Ability1_Code", monster.ability_one.load());
+		//JSONmonster.put("Ability1_Name", monster.ability_one.get_name());
 		
 		return JSONmonster;
 	}

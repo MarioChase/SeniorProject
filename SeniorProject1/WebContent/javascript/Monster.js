@@ -1,5 +1,5 @@
 var monster_stats;
-function getMonsterStats(){
+function getMonsterStats() {
 	var url = "http://localhost:8080/SeniorProject1/MonsterSpawner";
 	var data = {
 		time : spawncheck
@@ -17,12 +17,13 @@ function spawnMonster(gamearea, source) {
 	getMonsterStats();
 	console.log(monster_stats.monster_class);
 	var monster = {
-		body : Matter.Bodies.polygon(source.position.x + 300,
-				source.position.y + 300, (monster_stats.monster_class + 3), 20, {
+		body : Matter.Bodies.polygon(source.position.x + ((Math.random() * 300)+20),
+				((Math.random() * 300)+20), (monster_stats.monster_class + 3), 20,
+				{
 					density : 0.5,
 					friction : 0.25,
 					frictionAir : 0.00001,
-					restitution : 0.8,
+					restitution : 0,
 					label : 'monster',
 					health : monster_stats.Health,
 					render : {
@@ -32,18 +33,14 @@ function spawnMonster(gamearea, source) {
 					}
 				})
 	};
-	Matter.Body.setVelocity(monster.body, {
-		x : 2,
-		y : 0
-	});
 	Matter.World.add(gamearea.world, monster.body);
 	setInterval(function() {
 		Matter.Body.applyForce(monster.body, {
 			x : monster.body.position.x,
 			y : monster.body.position.y
 		}, {
-			x : 1,
-			y : 0
+			x : (Math.random() * 4) - 2,
+			y : (Math.random() * 4) - 2
 		})
 	}, 1000);
 }

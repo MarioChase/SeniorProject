@@ -190,7 +190,7 @@ public class MonsterBuilder extends Character {
 		difficulty = monster_strength;
 		System.out.println(difficulty);
 		setStats(difficulty);
-		setAbilityA(new TestAbility());
+		//setAbilityA(new TestAbility());
 		Monster monster = new Monster(stats, ability_a);
 		return monster;
 	}

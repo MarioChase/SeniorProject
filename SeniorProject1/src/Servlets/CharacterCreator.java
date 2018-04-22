@@ -32,8 +32,10 @@ public class CharacterCreator extends HttpServlet {
 		stats.put("wis", Integer.parseInt(request.getParameter("wis")));
 		stats.put("chr", Integer.parseInt(request.getParameter("chr")));
 		PlayerBuilder builder = new PlayerBuilder();
-		IAbility a = new TestAbility();
-		Player player = builder.execute(stats);
+		IAbility a = new TestAbility(request.getParameter("ability1"));
+		IAbility b = new TestAbility(request.getParameter("ability2"));
+		IAbility c = new TestAbility(request.getParameter("ability3"));
+		Player player = builder.execute(stats, a, b, c);
 		response.getWriter().println(handler.playerToJson(player));
 	}
 		

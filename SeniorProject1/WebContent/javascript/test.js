@@ -15,6 +15,7 @@ $('#submit').click(function() {
     request.done(function(json)
     {
        // model = json;
+    	console.log(json);
     	sessionStorage.setItem('player', json);
     	console.log(sessionStorage.player);
     });
@@ -26,3 +27,11 @@ $('#submit').click(function() {
     
 	});
 });
+
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}

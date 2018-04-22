@@ -1,8 +1,9 @@
 package Abilities;
 
 public class TestAbility extends Ability {
-	public TestAbility() {
-		javascript = "ye!";
-		ability_name = "test";
+
+	public TestAbility(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
 	}
 }

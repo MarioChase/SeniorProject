@@ -6,7 +6,7 @@ function createCharacter(gamearea) {
 		friction : 0,
 		frictionAir : 0,
 		restitution : 0,
-		inertia : 'Infinity',
+		inertia : Infinity,
 		render : {
 			fillStyle : '#FF0000',
 			strokeStyle : 'red',
@@ -16,8 +16,8 @@ function createCharacter(gamearea) {
 	Matter.World.add(gamearea.world, player);
 	setInterval(function() {
 		spawnMonster(gamearea, player);
-	}, 6000);
-
+	}, (Math.random()*6000) + 2000);
+	var player_info = JSON.parse(sessionStorage.player);
 	$(document).keydown(function(e) {
 		switch (e.keyCode) {
 		case 87:
@@ -45,14 +45,14 @@ function createCharacter(gamearea) {
 			})
 			break;
 		case 81:
-			spawnMonster(gamearea, player);
+			execute(gamearea, player, player_info, player_info.Ability3_Name);
 			break;
 		case 32:
 			e.preventDefault();
-			shootProjectile(gamearea, player, 1000);
+			execute(gamearea, player, player_info, player_info.Ability1_Name);
 			break;
 		case 16:
-
+			execute(gamearea, player, player_info, player_info.Ability2_Name);
 		}
 	})
 
