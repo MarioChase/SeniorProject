@@ -12,10 +12,11 @@
 		<title>Balls Matter</title>
 	</head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<div id="overlay">
+	<!--<div id="overlay">
 	<div id="health"></div>
 	<div id="mana"></div>
-	<div id="stamina"></div>
+	<div id="stamina"></div>-->
+	
 	</div>
 	<body onload="on()">
 		<%
@@ -34,11 +35,25 @@
 		<script src="../javascript/Monster.js"></script>
 		<script src="../javascript/test.js"></script>
 		<script src="../javascript/abilities.js"></script>
+		<script src="../javascript/monster_abilities.js"></script>
 		<script type="text/javascript">
 				var test = '<%=controller.getJsonMaze()%>';
 				init(test,<%=width%>,<%=height%>);
 				console.log(sessionStorage.player);
+				
+				setInterval(function(){
+					$("#health").text(JSON.parse(sessionStorage.player).Health);
+				},500);
+				
+				setInterval(function(){
+					$("#mana").text(JSON.parse(sessionStorage.player).Mana);
+				},500);
+				
+				setInterval(function(){
+					$("#stamina").text(JSON.parse(sessionStorage.player).Stamina);
+				},500);
 		</script>
+		
 	</body>
 </head>
 </body>

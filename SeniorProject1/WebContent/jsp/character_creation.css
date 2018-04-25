@@ -1,0 +1,11 @@
+#stat_block{
+	float: left;
+	vertical-align: top;
+	padding-right: 20px;
+}
+#ability_select .select{
+	padding: 10px;
+}
+#ability_select{
+	float: left;
+}

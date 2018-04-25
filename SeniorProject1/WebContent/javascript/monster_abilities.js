@@ -19,7 +19,7 @@ function execute(gamearea, source, character_info, ability_name) {
 		setTimeout(charge(gamearea, source, character_info),2000);
 		break;
 	case "dash":
-		setTimeout(dash(gamearea, source, character_info),2000);
+		dash(gamearea, source, character_info);
 		break;
 	case "rage":
 		rage(gamearea, source, character_info);
@@ -71,59 +71,12 @@ function dagger_throw(gamearea, source, character_info){
 	}
 	shootTriangle(gamearea, source, stats);
 }
-// make projectile burst into more projectiles
-function radiant_burst(gamearea, source, character_info){
-	var stats = {
-			range : 5,
-			radius : 4,
-			mass : .2,
-			damage : 2,
-			speed : 2,
-			penetrate : false,
-			color : '#FFFFFF'
-	}
-	shootProjectile(gamearea, source, stats);
-	
-}
-function blink(gamearea, source, character_info){
-	Matter.Body.translate(source, {x: (source.velocity.x * 150), y: (source.velocity.y * 150)});
-}
-function dash(gamearea, source, character_info){
-	source.position.x += 5 * source.velocity.x;
-	source.position.y += 5 * source.velocity.y;
-	source.isSensor = true;
-	setTimeout(function(){source.isSensor = false;}, 500);
-	setTimeout(function(){Matter.Body.setVelocity(source, {x:0, y:0});}, 500);
-}
-function charge(gamearea, source, character_info){
-	if(source.velocity.x == 1 || source.velocity.y == 1 || source.velocity.x == -1 || source.velocity.y == -1){
-		Matter.Body.applyForce(source, 
-				{x: source.position.x + source.velocity.x,y: source.position.y + source.velocity.y},
-				{x: 2 * source.velocity.x,y: 2 * source.velocity.y});
-		Matter.Body.setVelocity(source, {x:0, y:0});
-	}
-}
-function rage(gamearea, source, character_info){
-	Matter.Body.scale(source, 1.5, 1.5);
-	Matter.Body.setInertia(source,Infinity);
-	Matter.Body.setMass(9999);
-	character_info.str_mod += 2;
-	console.log(character_info.str_mod);
-	setTimeout(function()
-	{
-		Matter.Body.scale(source, (2/3), (2/3));
-		Matter.Body.setInertia(source,Infinity);
-		character_info.str_mod -= 2;
-		console.log(character_info.str_mod);
-	},(character_info.con_mod * 1000));
-	
-}
 function ice_spike(gamearea, source, character_info){
 	var stats = {
 			range : .75,
-			radius : character_info.int_mod/2,
+			radius : 6,
 			mass : .2,
-			damage : character_info.int_mod / 4,
+			damage : 2,
 			speed : 20,
 			destroyable : true, 
 			penetrate : false,

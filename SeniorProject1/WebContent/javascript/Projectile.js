@@ -19,6 +19,24 @@ function shootProjectile(gamearea, source, stats) {
 	Matter.World.add(gamearea.world, projectile);
 	setTimeout(function(){Matter.World.remove(gamearea.world,projectile)},stats.range * 1000);
 }
+function monsterProjectile(gamearea, source) {
+	var projectile = Matter.Bodies.circle(source.position.x + source.velocity.x, source.position.y+source.velocity.y, 4, {
+		mass : 5,
+		friction : 0.01,
+		frictionAir : 0.00001,
+		restitution : 0.8,
+		label : 'monster_projectile',
+		damage : 2,
+		render : {
+			fillStyle : 'red',
+			strokeStyle : 'black',
+			lineWidth : 1
+		}
+	});
+	Matter.Body.setVelocity(projectile,{x: 2 * source.velocity.x, y: 2 * source.velocity.y});
+	Matter.World.add(gamearea.world, projectile);
+	setTimeout(function(){Matter.World.remove(gamearea.world,projectile)},2 * 1000);
+}
 
 function shootTriangle(gamearea, source, stats) {
 	var projectile = Matter.Bodies.polygon(source.position.x + source.velocity.x, source.position.y + source.velocity.y, 3, stats.radius, {

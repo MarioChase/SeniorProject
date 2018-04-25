@@ -26,6 +26,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 12);
 				stats.put("wis", 12);
 				stats.put("chr", 10);
+				stats.put("dif", 0);
 				break;
 			case "uncommon":
 				stats.put("str", 8);
@@ -34,6 +35,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 16);
 				stats.put("wis", 12);
 				stats.put("chr", 12);
+				stats.put("dif", 1);
 				break;
 			case "rare":
 				stats.put("str", 10);
@@ -42,6 +44,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 18);
 				stats.put("wis", 14);
 				stats.put("chr", 14);
+				stats.put("dif", 2);
 				break;
 			case "legendary":
 				stats.put("str", 12);
@@ -50,6 +53,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 20);
 				stats.put("wis", 16);
 				stats.put("chr", 16);
+				stats.put("dif", 3);
 				break;
 			}
 			break;
@@ -64,6 +68,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 10);
 				stats.put("wis", 8);
 				stats.put("chr", 8);
+				stats.put("dif", 0);
 				break;
 			case "uncommon":
 				stats.put("str", 14);
@@ -72,6 +77,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 10);
 				stats.put("wis", 8);
 				stats.put("chr", 8);
+				stats.put("dif", 1);
 				break;
 			case "rare":
 				stats.put("str", 16);
@@ -80,6 +86,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 12);
 				stats.put("wis", 10);
 				stats.put("chr", 10);
+				stats.put("dif", 2);
 				break;
 			case "legendary":
 				stats.put("str", 16);
@@ -88,6 +95,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 14);
 				stats.put("wis", 12);
 				stats.put("chr", 12);
+				stats.put("dif", 3);
 				break;
 			}
 			break;
@@ -102,6 +110,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 8);
 				stats.put("wis", 12);
 				stats.put("chr", 10);
+				stats.put("dif", 0);
 				break;
 			case "uncommon":
 				stats.put("str", 14);
@@ -110,6 +119,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 10);
 				stats.put("wis", 14);
 				stats.put("chr", 12);
+				stats.put("dif", 1);
 				break;
 			case "rare":
 				stats.put("str", 14);
@@ -118,6 +128,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 10);
 				stats.put("wis", 18);
 				stats.put("chr", 12);
+				stats.put("dif", 2);
 				break;
 			case "legendary":
 				stats.put("str", 14);
@@ -126,6 +137,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 10);
 				stats.put("wis", 20);
 				stats.put("chr", 14);
+				stats.put("dif", 3);
 				break;
 			}
 			break;
@@ -140,6 +152,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 6);
 				stats.put("wis", 6);
 				stats.put("chr", 6);
+				stats.put("dif", 0);
 				break;
 			case "uncommon":
 				stats.put("str", 16);
@@ -148,6 +161,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 6);
 				stats.put("wis", 6);
 				stats.put("chr", 6);
+				stats.put("dif", 1);
 				break;
 			case "rare":
 				stats.put("str", 18);
@@ -156,6 +170,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 8);
 				stats.put("wis", 8);
 				stats.put("chr", 8);
+				stats.put("dif", 2);
 				break;
 			case "legendary":
 				stats.put("str", 22);
@@ -164,6 +179,7 @@ public class MonsterBuilder extends Character {
 				stats.put("int", 8);
 				stats.put("wis", 8);
 				stats.put("chr", 8);
+				stats.put("dif", 3);
 				break;
 			}
 			break;

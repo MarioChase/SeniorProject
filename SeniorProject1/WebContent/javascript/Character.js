@@ -1,24 +1,30 @@
 function createCharacter(gamearea) {
+	var player_info = JSON.parse(sessionStorage.player);
+	
 	var player = Matter.Bodies.rectangle(20, 20, 30, 30, {
 		label : 'player',
 		id : 1337,
 		density : 0.04,
+		Health : player_info.Health,
 		friction : 0,
 		frictionAir : 0,
 		restitution : 0,
 		inertia : Infinity,
 		render : {
-			fillStyle : '#FF0000',
-			strokeStyle : 'red',
+			fillStyle : 'magenta',
+			strokeStyle : 'magenta',
 			lineWidth : 1
 		}
 	});
 	Matter.World.add(gamearea.world, player);
+	
+	
 	setInterval(function() {
 		spawnMonster(gamearea, player);
-	}, (Math.random()*6000) + 2000);
-	var player_info = JSON.parse(sessionStorage.player);
+	}, (Math.random()*6000) + 500);
+	
 	$(document).keydown(function(e) {
+		
 		switch (e.keyCode) {
 		case 87:
 			Matter.Body.setVelocity(player, {
